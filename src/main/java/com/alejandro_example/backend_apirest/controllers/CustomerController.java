@@ -2,6 +2,7 @@ package com.alejandro_example.backend_apirest.controllers;
 
 import com.alejandro_example.backend_apirest.entities.CustomerEntity;
 import com.alejandro_example.backend_apirest.services.ICustomerService;
+import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,10 +56,21 @@ public class CustomerController {
     }
 
     @PostMapping("/customers")
-    public ResponseEntity<?> create(@RequestBody CustomerEntity customer) {
+    public ResponseEntity<?> create(@Valid @RequestBody CustomerEntity customer,
+        BindingResult result) {
 
         CustomerEntity newCustomer = null;
         Map<String, Object> response = new HashMap<>();
+
+        if (result.hasErrors()) {
+            List<String> errors = result.getFieldErrors()
+                .stream()
+                .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
+                .toList();
+            response.put("errors", errors);
+            return new ResponseEntity<Map<String, Object>>(response,
+                HttpStatus.BAD_REQUEST);
+        }
 
         try {
             newCustomer = customerService.save(customer);
@@ -76,11 +89,22 @@ public class CustomerController {
     }
 
     @PutMapping("/customers/{id}")
-    public ResponseEntity<?> update(@RequestBody CustomerEntity customer, @PathVariable Long id) {
+    public ResponseEntity<?> update(@Valid @RequestBody CustomerEntity customer,
+        BindingResult result, @PathVariable Long id) {
 
         var nowCustomer = customerService.findById(id);
         CustomerEntity updatedCustomer = null;
         Map<String, Object> response = new HashMap<>();
+
+        if (result.hasErrors()) {
+            List<String> errors = result.getFieldErrors()
+                .stream()
+                .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
+                .toList();
+            response.put("errors", errors);
+            return new ResponseEntity<Map<String, Object>>(response,
+                HttpStatus.BAD_REQUEST);
+        }
 
         if (nowCustomer == null) {
             response.put("message",
