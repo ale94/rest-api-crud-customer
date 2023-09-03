@@ -1,94 +1,3 @@
-## Ejemplos
-
-### Listar usuarios
-
-- **URL**: `/api/users`
-- **Método**: `GET`
-- **Respuesta exitosa**:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Peter",
-        "username": "peter12",
-        "email": "peter@gmail.com",
-        "phone": "45633212"
-    },
-    {
-        "id": 2,
-        "name": "Jhon",
-        "username": "jhonf22",
-        "email": "jhonf22@gmail.com",
-        "phone": "45129632"
-    },
-    {
-        "id": 3,
-        "name": "Donny",
-        "username": "don8",
-        "email": "donny@gmail.com",
-        "phone": "63215896"
-    }
-]
-```
-
-### Obtener usuario por ID
-
-- **URL**: `/api/users/:id`
-- **Método**: GET
-- **Cuerpo de la Solicitud:**
-
-```json
-{
-    "name": "Donny",
-    "username": "don8",
-    "email": "donny@gmail.com",
-    "phone": "63215896"
-}
-```
-
-### Crear usuario
-
-- **URL**: `/api/users`
-- **Método**: POST
-- **Cuerpo de la Solicitud:**
-
-```json
-{
-    "name": "Donny",
-    "username": "don8",
-    "email": "donny@gmail.com",
-    "phone": "63215896"
-}
-```
-
-### Actualizar usuario por ID
-
-- **URL**: `/api/users/:id`
-- **Método**: PUT
-- **Cuerpo de la Solicitud:**
-
-```json
-{
-    "name": "Donny",
-    "username": "don8",
-    "email": "donny@gmail.com",
-    "phone": "63215896"
-}
-```
-
-### Eliminar usuario por ID
-
-- **URL**: `/api/users/:id`
-- **Método**: DELETE
-- **Respuesta exitosa**:
-
-```json
-{
-    "mensaje": "User :id deleted successfully"
-}
-```
-
 # Spring Boot, MySQL, JPA, Error Handling, Pagination, Rest API
 
 ## Introducción
@@ -145,6 +54,65 @@ Para utilizar la API REST en tu entorno local, sigue estos pasos:
     }
 ]
 ```
+
+### Obtener cliente por ID
+
+- **URL**: `/api/customer/:id`
+- **Método**: GET
+- **Cuerpo de la Solicitud:**
+
+```json
+{
+    "id": 12,
+    "firstName": "Jade",
+    "lastName": "Doe",
+    "email": "jane.doe@gmail.com",
+    "createAt": "2018-03-06"
+}
+```
+
+### Crear cliente
+
+- **URL**: `/api/customer`
+- **Método**: POST
+- **Cuerpo de la Solicitud:**
+
+```json
+{
+    "firstName": "Jade",
+    "lastName": "Doe",
+    "email": "jane.doe@gmail.com",
+    "createAt": "2018-03-06"
+}
+```
+
+### Actualizar cliente por ID
+
+- **URL**: `/api/customer/:id`
+- **Método**: PUT
+- **Cuerpo de la Solicitud:**
+
+```json
+{
+    "firstName": "Jade",
+    "lastName": "Doe",
+    "email": "jane.doe@gmail.com",
+    "createAt": "2018-03-06"
+}
+```
+
+### Eliminar cliente por ID
+
+- **URL**: `/api/customer/:id`
+- **Método**: DELETE
+- **Respuesta exitosa**:
+
+```json
+{
+    "message": "The customer has been successfully deleted"
+}
+```
+
 ## Manejo de errores
 ## Contribuciones
 ## Contacto
