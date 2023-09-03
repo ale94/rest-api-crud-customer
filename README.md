@@ -10,7 +10,7 @@ Para utilizar la API REST en tu entorno local, sigue estos pasos:
 2. Crear base de datos MySQL: `create database db_example`
 3. Cambie el nombre de usuario y la contraseña de MySQL según su instalación:
     - open src/main/resources/application.properties
-    - change spring.datasource.username and spring.datasource.password as per your mysql installation
+    - change spring.datasource.username and spring.datasource.password según su instalación de MySQL
 4. Compile y ejecute la aplicación usando maven: `mvn spring-boot:run`
 5. La aplicación comenzará a ejecutarse en http://localhost:8080.
 
