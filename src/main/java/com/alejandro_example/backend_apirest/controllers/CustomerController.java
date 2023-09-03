@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -30,6 +32,11 @@ public class CustomerController {
     @GetMapping("/customers")
     public List<CustomerEntity> index() {
         return customerService.findAll();
+    }
+
+    @GetMapping("/customers/page/{page}")
+    public Page<CustomerEntity> index(@PathVariable Integer page) {
+        return customerService.findAll(PageRequest.of(page, 4));
     }
 
     @GetMapping("/customers/{id}")
