@@ -6,7 +6,7 @@ Bienvenido a la documentación de la API REST. Esta es una API REST básica para
 ## Configuración
 Para utilizar la API REST en tu entorno local, sigue estos pasos:
 
-1. Clona este repositorio: `git clone https://github.com/ale94/rest-api-crud-user-example.git)`
+1. Clona este repositorio: `git clone https://github.com/ale94/rest-api-crud-user-example.git`
 2. Crear base de datos MySQL: `create database db_example`
 3. Cambie el nombre de usuario y la contraseña de MySQL según su instalación:
     - open src/main/resources/application.properties
