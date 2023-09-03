@@ -179,7 +179,3 @@ Para utilizar la API REST en tu entorno local, sigue estos pasos:
 }
 ```
 
-## Manejo de errores
-## Contribuciones
-## Contacto
-
