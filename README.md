@@ -16,7 +16,7 @@ Para utilizar la API REST en tu entorno local, sigue estos pasos:
 
 ## Endpoints
 - **Listar clientes**: `GET /api/customers`
-- **Listar clientes**: `GET /api/customers/page/:page`
+- **Listar clientes por paginación**: `GET /api/customers/page/:page`
 - **Obtener cliente por ID**: `GET /api/customers/:id`
 - **Crear cliente**: `POST /api/customers`
 - **Actualizar cliente por ID**: `PUT /api/customers/:id`
@@ -53,6 +53,72 @@ Para utilizar la API REST en tu entorno local, sigue estos pasos:
         "createAt": "2018-01-03"
     }
 ]
+```
+
+### Listar clientes por paginación
+
+- **URL**: `/api/customers/page/:page`
+- **Método**: `GET`
+- **Respuesta exitosa**:
+
+```json
+{
+    "content": [
+    {
+        "id": 1,
+        "firstName": "Andrés",
+        "lastName": "Guzmán",
+        "email": "profesor@bolsadeideas.com",
+        "createAt": "2018-01-01"
+    },
+    {
+        "id": 2,
+        "firstName": "Mr. John",
+        "lastName": "Doe",
+        "email": "john.doe@gmail.com",
+        "createAt": "2018-01-02"
+    },
+    {
+        "id": 3,
+        "firstName": "Linus",
+        "lastName": "Torvalds",
+        "email": "linus.torvalds@gmail.com",
+        "createAt": "2018-01-03"
+    },
+    {
+        "id": 4,
+        "firstName": "Rasmus",
+        "lastName": "Lerdorf",
+        "email": "rasmus.lerdorf@gmail.com",
+        "createAt": "2018-01-04"
+    }
+    ],
+    "pageable": {
+        "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+        },
+        "offset": 0,
+        "pageNumber": 0,
+        "pageSize": 4,
+        "unpaged": false,
+        "paged": true
+    },
+    "last": false,
+    "totalElements": 11,
+    "totalPages": 3,
+    "size": 4,
+    "number": 0,
+    "sort": {
+        "empty": true,
+        "sorted": false,
+        "unsorted": true
+    },
+    "first": true,
+    "numberOfElements": 4,
+    "empty": false
+}
 ```
 
 ### Obtener cliente por ID
